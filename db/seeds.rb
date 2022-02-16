@@ -9,13 +9,13 @@
 require 'faker'
 
 24.times do
-    puts "start creating a flat"
-    Flat.create!(
-    name: 'Light & Spacious Garden Flat London',
+  puts 'start creating a flat'
+  flat = Flat.create!(
+    name: "#{[Faker::Adjective.negative, Faker::Adjective.positive].sample} flat in #{Faker::Address.community}",
     address: Faker::Address.street_address,
-    description: 'A lovely summer feel for this spacious garden flat. Two double bedrooms, open plan living area, large kitchen and a beautiful conservatory',
+    description: Faker::ChuckNorris.fact,
     price_per_night: rand(25..500),
     number_of_guests: rand(1..8)
-    )
-    puts "finished creating flat #{flat.id}"
-  end
+  )
+  puts "finished creating flat #{flat.id}"
+end
